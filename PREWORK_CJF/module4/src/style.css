@@ -1,6 +1,6 @@
 p {
     text-indent: 25px;
-    width: 1100px;
+    width: 500px;
 }
 
 img.album {
@@ -59,7 +59,19 @@ li {
     width: 100%;
     background-image: url("../assets/banner.png");
     height: 150px;
-    background-color: black;
+    background-color: #040507;
     background-repeat: no-repeat;
     background-size: auto 150px;
+}
+
+.bioPic {
+    width: 600px;
+    position: relative;
+}
+
+.bioText {
+    position: relative;
+    font-size: 20pt;
+    left: 700px;
+    top: -500px;
 }
