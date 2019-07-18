@@ -19,12 +19,14 @@ thead {
 }
 
 th, td {
-}
-
-th, td {
-    padding: 15px;r
+    padding: 15px;
 }
 
 li {
     text-align: left;
+}
+
+.navbar {
+    display: inline;
+    padding: 5px;
 }
