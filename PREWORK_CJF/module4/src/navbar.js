@@ -1,5 +1,5 @@
-let home = "<li class='navbar'><a href='index.html'>Home</a></li>";
-let discog = "<li class='navbar'><a href='discography.html'>Discography</a></li>";
-let concert= "<li class='navbar'><a href='concert.html'>Concert</a></li>";
+let home = "<a href='index.html'>Home</a>";
+let discog = "<a href='discography.html'>Discography</a>";
+let concert= "<a href='concert.html'>Concert</a>";
 
-document.getElementById("navbar").innerHTML = `<ul>${home}${discog}${concert}</ul>`;
+document.getElementById("navbar").innerHTML = `${home} ${discog} ${concert}`;
