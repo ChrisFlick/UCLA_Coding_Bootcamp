@@ -54,4 +54,12 @@ li {
     background-color: #4CAF50;
     color: white;
   }
-  
+
+#banner {
+    width: 100%;
+    background-image: url("../assets/banner.png");
+    height: 150px;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: auto 150px;
+}
