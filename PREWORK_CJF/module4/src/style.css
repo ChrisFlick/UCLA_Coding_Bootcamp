@@ -4,8 +4,8 @@ p {
 }
 
 img.album {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
 }
 
 thead {
@@ -66,12 +66,15 @@ li {
 
 .bioPic {
     width: 600px;
-    position: relative;
 }
 
 .bioText {
     position: relative;
-    font-size: 20pt;
-    left: 700px;
-    top: -500px;
+    font-size: 20px;
+    left: 675px;
+    top: -450px;
+}
+
+table {
+    border-collapse:collapse;
 }
