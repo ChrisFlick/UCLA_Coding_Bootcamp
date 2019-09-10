@@ -12,7 +12,42 @@ body {
     padding: 0;
 }
 
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
+
 h1 {
     color: #eee;
     font-size: 28px;
+
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+#main-bio, #contact-info, #bio-image {
+    float: left;
+}
+
+#bio-image {
+    width: 200px;
+
+    margin: 10px;
+}
+
+#main-bio {
+    width: 70%
+}
+
+#contact-info {
+    width: 30%;
+}
+
+a {
+    color: #d21034;
 }
