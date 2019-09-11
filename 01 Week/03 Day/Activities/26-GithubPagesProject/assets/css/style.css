@@ -1,0 +1,181 @@
+header {
+    background-color: white;
+
+    border-width: 5px;
+    border-style: none none solid;
+    border-color: #cccccc;
+
+    width: 100%;
+    height: 90px;
+
+    font-family: 'Georgia', Times, Times New Roman, serif;
+}
+
+.name {
+    position: relative;
+    background-color: #B76A22;
+    height: 90px;
+    width: 400px;
+    float: left; 
+
+    text-align: center;
+    left: 20vw;
+  }
+
+  .name h1 {
+    color: #f2f2f2;
+    font-size: 40px;
+    text-align: center;
+  }
+
+/* Style for navbar */
+.navbar {
+    position: relative;
+
+    overflow: hidden;
+    float: right;
+    top: 35px;
+}
+
+
+/* Style the links inside the navigation bar */
+.navbar a {
+    color: black;
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+/* Add a color to the active/current link */
+.navbar a.active {
+    background-color: #cccccc;
+    color: white;
+  }
+
+body {
+    background-image: url("../images/green_cup.png");
+    margin:0px;
+    padding:0px;
+}
+
+h2 {
+    color: #B76A22;
+    font-size: 40px;
+    margin: 10px
+}
+
+.container {
+    color: #777777;
+
+    position: relative;
+    left: 20vw;
+    display: block;
+    
+    background-color: #ffffff;
+    border-color: #dddddd;
+
+    width: 960px;
+   
+    margin: 50hw;
+    display: block;
+
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+#profilePic {
+    float: left;
+    position: relative;
+    width: 200px;
+    margin: 10px;
+}
+
+.text {
+    position: relative;
+    left: 20px;
+    width: 900px;
+}
+
+#line {
+    position: relative;
+    background-color: #cccccc;
+    width: 80%;
+    height: 5px;
+}
+
+.content p {
+    text-indent: 50px;
+    width: 900px;
+}
+
+
+
+form {
+    margin: 15px; 
+}
+
+input {
+    width: 100%;
+}
+
+#message {
+    height: 100px;
+}
+
+.formButton {
+    width:100px;
+}
+
+.portPiece {
+    height: 200px;
+    width: 200px;
+    margin: 15px;
+}
+
+.portPiece img {
+    height: 200px;
+    width: 200px;
+}
+
+.portName {
+    position: relative;
+    background-color: #B76A22;
+    color: #f2f2f2;
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+    height: 50px;
+
+    top: -80px;
+}
+
+.portPiece a {
+    color: #f2f2f2;
+}
+
+.portPiece a:hover {
+    color: black;
+}
+
+.video {
+    position: relative;
+    left: 10vw; 
+}
+
+footer {
+    border-top: 8px solid #B76A22;
+    background-color: #666666;
+    width: 100vw;
+    height: 5vw;
+    position: fixed;
+    top: 90%
+}
+
+
