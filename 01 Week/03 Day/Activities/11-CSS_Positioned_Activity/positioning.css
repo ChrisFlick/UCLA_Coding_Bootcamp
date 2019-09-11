@@ -1,7 +1,7 @@
-body {
-    margin-left: auto;
-    margin-right: auto;
-    width: 960px;
+.wrapper {
+    position: relative;
+    left: 20%;
+    width: 600px;
 }
 
 .fixed {
@@ -10,13 +10,13 @@ body {
     height: 100px;
     width: 200px;
     top: 0%;
-    left: 0%;
+    left: 10%;
 }
 
 .relative {
     position: relative;
 
-    width: 960px;
+    width: 600px;
     height: 200px;
 
     background-color: #eee;
@@ -26,7 +26,7 @@ body {
     position: absolute;
     background-color: #999;
     top: 250px;
-    left: 1130px;
+    left: 90%;
 
     height: 100px;
     width: 200px;
