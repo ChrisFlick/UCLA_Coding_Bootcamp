@@ -1,0 +1,27 @@
+.hover:hover {
+    color: red;
+}
+
+.focus:focus {
+    color: green;
+}
+
+.active:active {
+    color: blue;
+}
+
+.transition {
+    height: 60px;
+    width: 60px;
+    background: blue;
+
+    transition: 2s;
+}
+
+.transition:hover {
+    height:100px;
+    width:100px;
+    background: red;
+
+    transition: 2s;
+}
