@@ -1,0 +1,21 @@
+/**
+ * Google Fonts Demo
+ **/
+
+/* Add in the Google Fonts of your choice */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Livvic&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+
+.thought1 {
+    font-family: 'Roboto', sans-serif;
+}
+
+.thought2 {
+    font-family: 'Livvic', sans-serif;
+}
+
+.thought3 {
+    font-family: 'Titillium Web', sans-serif;
+}
