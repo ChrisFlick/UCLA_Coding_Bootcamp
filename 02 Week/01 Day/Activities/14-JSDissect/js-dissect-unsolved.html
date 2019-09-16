@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Data Types, User Input, Conditional Logic - Uncommented
+    </title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      var userName = prompt("What's your name?");
+      var confirmCats = confirm("Do you like cats?");
+
+      var petName = "Meeses";
+      var petType = "Tuxedo Cat";
+      var petAge = 5;
+      var petIsCat = true;
+
+      if (confirmCats) { //  If the user said they like cats display "Meeses Tuxedo Cat 5"
+        alert(petName + " " + petType + " " + petAge);
+      }
+      else { // Otherwise let them know they are missing out on cat's information
+        alert("You don't get my cat's information");
+      }
+
+      if (petIsCat) { // If the variable petIsCat is true let them know that the pet is a cat (above shows true)
+        alert("My pet is a cat");
+      }
+      else { // Otherwise let them know that the pet is not a cat.
+        alert("My pet is not a cat");
+      }
+
+      if (petAge !== 7) { // Since petAge is 5 let them know that pet is not 7 years old.
+        alert("My pet is not 7 years old");
+      }
+
+      if (petAge === 5) { // Let the user know that pet is 5 years old since the above variable is equal to 5.
+        alert("My pet is 5 years old");
+      }
+      else if (petAge < 5) { // Since the variable is exactly 5 this will alert the user that the pet is older than 5.
+        alert("My pet is less than 5 years old");
+      }
+      else { // Can be fixed by adding else (petAge > 5)
+        alert("My pet is older than 5 years old");
+      }
+
+      alert("Welcome to our page " + userName); // Will display userName prompted at start
+
+      var catAge = prompt("How old is your cat?");
+
+      // Won't work as expected
+      alert(catAge + 2); // displays as a string so if you put in 2 will show 22 adds to the right of catAge rather than math addition
+
+      // Works as expected
+      alert(parseInt(catAge) + 2); // if you input 2 will show 4 uses math addition.
+
+    </script>
+  </body>
+</html>
