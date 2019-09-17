@@ -1,0 +1,1 @@
+This repository contains all the classwork done at UCLA Extensions Full Stack Web Development course. The homework projects have their own individual repositories.
