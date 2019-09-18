@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <header>
+    </header>
+
+    <script>
+
+        alert(`Welcome ${window.navigator.platform} user`)
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(findPosition)
+            
+        } else {
+            alert("I can't see you")
+        }
+        
+        function findPosition(position) {
+            if (position.coords.longitude < -100) {
+                window.location = 'west.html';
+            } else {
+                window.location = "east.html";
+            }
+        }
+
+    </script>
+
+    <footer>
+    </footer>
+</body>
