@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <script>
+        let score = 0;
+
+        let questions = [
+            {q: "What is the name of Thor's brother", a: "loki"},
+            {q: "What is the name of Loki's brother?", a: "thor"},
+            {q: "What is the real name of The Hulk?", a: "bruce banner"},
+            {q: "JQuery is an API for what language", a: "javascript"},
+            {q: "Foo?", a: "bar"},
+            {q: "Star Lord is from what series", a: "guardians of the galaxy"},
+            {q: "Why did I mix in JavaScript questions?", a: "need questions"},
+            {q: "What is the air speed velocity of a swallow", a: "african?"},
+            {q: "What was the last question from?", a: "monty python"},
+            {q: "Who wrote the art of deception", a: "kevin mitnick"},
+        ];
+
+        for (let i = 0; i < questions.length; i++) {
+            let guess = prompt(questions[i].q)
+            if (guess.toLowerCase() === questions[i].a) {
+                score++;
+                alert("Correct!!!")
+            } else {
+                alert("WRONG!")
+            }
+        }
+        alert(`Your score is ${score}`);
+    </script>
+
+    <header>
+    </header>
+    <footer>
+    </footer>
+</body>
