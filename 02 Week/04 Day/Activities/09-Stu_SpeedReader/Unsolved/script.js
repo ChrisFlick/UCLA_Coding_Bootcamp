@@ -8,8 +8,13 @@ readEl.style.textAlign = "center"
 
 var poem = "Some say the world will end in 🔥, Some say in ice. From what I’ve tasted of desire, I hold with those who favor fire. But if it had to perish twice, I think I know enough of hate. To say that for destruction ice, Is also great, And would suffice.";
 
-interval =  prompt("How fast (Lower is faster)")
-prepareRead(interval);
+interval =  parseInt(prompt("How fast (Lower is faster)"));
+if(isNaN(interval)) {
+  alert("That was a string not a number!")
+} else {
+  prepareRead(interval);
+}
+
 
 
 function prepareRead(interval) {
@@ -20,7 +25,6 @@ function prepareRead(interval) {
     secondsLeft--;
 
     if(secondsLeft === 0) {
-      timeEl.innerHTML = "0";
       clearInterval(timerInterval);
       speedRead(interval);
     }
@@ -37,7 +41,6 @@ function speedRead(interval) {
     readEl.innerHTML = words[wordCount++];
 
     if (wordCount === words.length) {
-      readEl.innerHTML = "fin"
       clearInterval(timerInterval);
     }
 
