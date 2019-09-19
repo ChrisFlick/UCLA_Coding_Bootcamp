@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <header>
+    </header>
+
+    <script>
+
+       let rps = {
+            r: {
+                r: 'tie', // Rock Vs. Rock is a tie.
+                p: 'lose', // Rock Vs. Paper is a lose.
+                s: 'win', // Rock Vs. Scissors is a win.
+            },
+            p: {
+                r: 'win', // Paper Vs. Rock is a win.
+                p: 'tie', // Paper Vs. Pock is a tie.
+                s: 'lose' ,  // Paper Vs. Scissors is a lose.
+            },
+            s: {
+                r: 'lose', // Scissors Vs. Rock is a lose.
+                p: 'win',   // Scossprs Vs. Paper is a Win
+                s: 'tie', // Scissors Vs Scissors is a tie.
+            }
+        }
+
+        console.log(rps.r.s) // Player selects Rock computer selects Scissors player wins!
+    </script>
+
+
+    <footer>
+    </footer>
+</body>
+
+
