@@ -25,7 +25,10 @@ function renderTodos() {
 function init() {
   // Write code here to check if there are todos in localStorage
   // If so, parse the value from localStorage and assign it to the todos variable
-
+  let storedTodos = localStorage.getItem("todoList");
+  if (storedTodos) {
+    todos = JSON.parse(storedTodos);
+  } 
   // Store updated todos in localStorage, re-render the list
   storeTodos();
   renderTodos();
@@ -33,6 +36,7 @@ function init() {
 
 function storeTodos() {
   // Add code here to stringify the todos array and save it to the "todos" key in localStorage
+  localStorage.setItem('todoList', JSON.stringify(todos))
 }
 
 // When form is submitted...
