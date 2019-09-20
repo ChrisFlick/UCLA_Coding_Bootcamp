@@ -39,10 +39,10 @@ signUpButton.addEventListener("click", function(event) {
 
     // set new submission
     console.log(user);
-    localStorage.setItem("user", user);
+    window.localStorage.setItem("user", user);
     
     // get most recent submission
-    var lastUser = localStorage.getItem("user");
+    var lastUser = window.localStorage.getItem("user");
     userFirstNameSpan.textContent = lastUser.firstName;
     userLastNameSpan.textContent = lastUser.lastName;
     userEmailSpan.textContent = lastUser.email;
