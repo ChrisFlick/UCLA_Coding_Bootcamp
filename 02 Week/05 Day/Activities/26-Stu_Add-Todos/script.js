@@ -7,6 +7,19 @@ var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
 
 renderTodos();
 
+todoForm.addEventListener("submit", function() {
+  event.preventDefault();
+
+  if (!todoInput.value) {
+    return;
+  }
+
+  let li = document.createElement('li');
+  li.textContent = todoInput.value;
+  todoList.appendChild(li);
+})
+
+
 function renderTodos() {
   // Clear todoList element and update todoCountSpan
   todoList.innerHTML = "";
