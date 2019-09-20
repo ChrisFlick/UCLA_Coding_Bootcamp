@@ -17,9 +17,26 @@ function renderTodos() {
     var todo = todos[i];
 
     var li = document.createElement("li");
+    let newButton = document.createElement('button');
+
     li.textContent = todo;
+    newButton.dataIndex = i;
+    newButton.textContent = "Complete"
+    
+
     todoList.appendChild(li);
+    li.appendChild(newButton);
   }
+
+  let btn = document.querySelectorAll('button');
+
+  for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", function() {
+      todos.splice(this.dataIndex, this.dataIndex + 1)
+      renderTodos();
+    })
+  }
+  
 }
 
 // When form is submitted...
@@ -40,3 +57,8 @@ todoForm.addEventListener("submit", function(event) {
   // Re-render the list
   renderTodos();
 });
+
+
+
+
+
