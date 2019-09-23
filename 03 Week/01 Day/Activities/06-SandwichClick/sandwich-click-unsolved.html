@@ -31,7 +31,9 @@
       // ====================================================================
       // Here we create variables for tracking the number of sandwiches eaten
       // ...
-
+      let pbjCount = 0;
+      let grilledcheeseCount = 0;
+      let roastbeefCount = 0;
 
       // ...
 
@@ -40,6 +42,38 @@
       // Here we create various on "click" functions which capture the clicks
       // Inside each click event is the code to create an alert, update the counter, then show the updated count.
       // ...
+      $('#pbj').on('click', () => {
+        pbjCount++;
+
+        let total = pbjCount + grilledcheeseCount + roastbeefCount;
+        if (total > 1) {
+          alert(`Woa slow down there; you've eaten ${pbjCount} PBJs, and ${total} total sandwiches`)
+        } else {
+          alert ("You've only eaten one PBJ, those are rookie numbers")
+        }
+      });
+
+      $('#grilledcheese').on('click', () => {
+        grilledcheeseCount++;
+
+        let total = pbjCount + grilledcheeseCount + roastbeefCount;
+        if (total > 1) {
+          alert(`Woa slow down there; you've eaten ${grilledcheeseCount} Grilled Cheese sandwiches, and ${total} total sandwiches`)
+        } else {
+          alert ("You've only eaten one Grilled Cheese, those are rookie numbers")
+        }
+      });
+
+      $('#roastbeef').on('click', () => {
+        roastbeefCount++;
+
+        let total = pbjCount + grilledcheeseCount + roastbeefCount;
+        if (total > 1) {
+          alert(`Woa slow down there; you've eaten ${roastbeefCount} Roast beef, and ${total} total sandwiches`)
+        } else {
+          alert ("You've only eaten one Roast Beef sandwich, those are rookie numbers")
+        }
+      });
 
 
       // ...
