@@ -124,7 +124,7 @@
 
       <!-- Right Card (Captain Planet Hero)-->
       <div class="col-lg-6">
-        
+        <div id="speech"></div>
         <div id="clones"></div>
         <!-- Captain Planet Image -->
         <img src="assets/captain-planet.jpg" alt="" class="img captain-planet" style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px; width:500px">
@@ -223,6 +223,7 @@
     });
     $(".back-button").on("click", function() {
       captainPlanet.animate({ top: "50px", left: "80px" }, "fast");
+      $("#speech").html("MUAHaHaAHahHa!!");
     });
 
     // Keyboard move controls
