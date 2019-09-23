@@ -66,6 +66,38 @@
           </div>
         </div>
 
+        <!-- Controls (Superpower Clone) -->
+        <div id="cloneControls" class="card">
+          <h4 class="card-header">Superpowers - Clone</h4>
+          <div class="card-body">
+            <div class="text-center">
+              <button class="btn btn-primary btn-lg addClone">
+                <span class="fa fa-plus"></span> Clone
+              </button>
+              <button class="btn btn-danger btn-lg removeClone">
+                <span class="fa fa-minus"></span> Remove Clones
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="cloneControls" class="card">
+          <h4 class="card-header">Superpowers - Elements</h4>
+          <div class="card-body">
+            <div class="text-center">
+              <button class="btn btn-danger btn-lg fire">
+                <span class="fa"></span>🔥 Create Fire
+              </button>
+              <button class="btn btn-primary btn-lg water">
+                <span class="fa"></span>🌊 Create Water
+              </button>
+              <button class ="btn btn-dark btn-lg removeEle">
+                <span class="fa fa-minus"></span>Remove Elements
+              </button>
+            </div>
+          </div>
+        </div>
+
         <!-- Controls (Superpower Move Controls) -->
         <div id="moveControls" class="card">
           <h4 class="card-header">Move Controls</h4>
@@ -89,9 +121,12 @@
 
       <!-- Right Card (Captain Planet Hero)-->
       <div class="col-lg-6">
-
+        
+        <div id="clones"></div>
         <!-- Captain Planet Image -->
         <img src="assets/captain-planet.jpg" alt="" class="img captain-planet" style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px">
+
+        <img id="element" src="" style="position: relative; top:50px; left: 80px; z-index: -10; height: 100px">
       </div>
     </div>
   </div>
@@ -133,6 +168,38 @@
     $(".invis-button").on("click", function() {
       captainPlanet.animate({ opacity: "0.05" });
     });
+
+    // Clone Buttons
+    $('.addClone').on('click', function() {
+      let $captain = $('<img>')
+
+      $captain.attr("src", "assets/captain-planet.jpg" )
+      $captain.attr('class', "class='img captain-planet'")
+      $captain.css("position", "relative");
+
+      $captain.css("z-index", "-30");
+      $captain.css("height", "300px");
+
+      $("#clones").append($captain)
+    });
+
+    $('.removeClone').on('click', function() {
+      $('#clones').html('');
+    });
+
+    // Elemental control
+    $(".fire").on('click', function() {
+      $("#element").attr('src', 'assets/fire.jpg')
+      console.log('fire')
+    })
+
+    $(".water").on('click', function() {
+      $("#element").attr('src', 'assets/water.jpg')
+    })
+
+    $(".removeEle").on('click', function() {
+      $("#element").attr('src', '')
+    })
 
     // Move Buttons
     $(".up-button").on("click", function() {

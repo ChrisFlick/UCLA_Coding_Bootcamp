@@ -72,6 +72,17 @@
               // Compare the computer and user guess
               // Inform the user if the've guessed correctly or incorrectly
 
+              let ranNum = Math.floor(Math.random() * 4) + 1
+              
+              $('#computer-pick').text(ranNum);
+
+              if (this.value == ranNum) {
+                $('#result').text('Correct!')
+              } else {
+                $('#result').text('Wrong!')
+                
+              }
+
             });
           });
 
