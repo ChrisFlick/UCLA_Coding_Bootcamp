@@ -15,6 +15,7 @@
       var x = 1;
 
       // what is the scope of this function and the scope of y?
+      // inside will only work if called within outside
       function inside(y) {
 
         console.log(x + y);
@@ -25,12 +26,13 @@
 
     // what is happening here?
     var insideOut = outside();
+    //setting whatever is returned by outside to insideOut
 
-    // What does this return?
-    insideOut(2);
+    // What does this return? undefined
+    console.log(insideOut(2));
 
     // Uncaught ReferenceError: x is not defined.
-    // How does insideOut have access to x?
+    // How does insideOut have access to x? X is defined within outside which insideOut is calling
     console.log("The value of 'x' outside 'outside()' is: " + x);
 
   </script>
