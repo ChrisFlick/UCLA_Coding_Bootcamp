@@ -17,19 +17,19 @@
         console.log("inside printInfo()");
 
         // What will this print?
-        console.log(this);
+        console.log(this); // object cat will be printed
 
         // What will this print?
-        console.log("Name:", this.name, "Color:", this.color, "Age:", this.age);
+        console.log("Name:", this.name, "Color:", this.color, "Age:", this.age); // Name: Gus Color: gray Age: 15
 
         var nestedFunction = function() {
           console.log("inside nestedFunction()");
 
           // What will this print?
-          console.log(this);
+          console.log(this); // window
 
           // What will this print?
-          console.log("Name:", this.name, "Color:", this.color, "Age:", this.age);
+          console.log("Name:", this.name, "Color:", this.color, "Age:", this.age); // Name: Undefined Color: Undefined Age: Undefined
         };
 
         nestedFunction();
