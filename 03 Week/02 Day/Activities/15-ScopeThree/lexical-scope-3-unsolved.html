@@ -14,11 +14,11 @@
     // -------------------------------------------
     var a = 1;
     function one() {
-      alert("One: " + a);
+      alert("One: " + a); 
     }
 
     // What will get alerted?
-    one();
+    one(); // One: 1
 
     // Example Two: Local Scope
     // -------------------------------------------
@@ -28,11 +28,11 @@
         alert("Two: " + a);
       }
 
-      two(a);
+      two(a); 
     }
 
     // What will get alerted?
-    twotop();
+    twotop(); // Two: 2
 
     // Example Three: Local Scope
     // -------------------------------------------
@@ -44,7 +44,7 @@
     }
 
     // What will get alerted?
-    three();
+    three(); // Three: 3
 
     // Example Four: Local Scope
     // -------------------------------------------
@@ -67,7 +67,8 @@
     }
 
     // What will get alerted?
-    first();
+    first(); // Four: 3
+    // Five: 5
 
   </script>
 </body>

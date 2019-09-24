@@ -71,25 +71,49 @@
         "black"
       ];
 
+     $(document).ready( () => {
+        reset();
+     });
+
       // This function sets a random color "word" and a random set of colors "visuals"
       function randColor() {
+        let randWord = $('<span>')
 
-        // Set random word
+        while (true) {
+          // Set random word
+          let rng = Math.floor(Math.random() * colors.length)
+          randWord.text(colors[rng])
 
+          // Set random word color
+          rng = Math.floor(Math.random() * colors.length)
+          randWord.css("color", colors[rng])
 
-        // Set random word color
+          if (randWord.text() != randWord.css('color')) {
+            return randWord;
+          }
+        }
+        
 
-
+        
       }
 
       // This function creates the actual "game" logic.
       function createColorPicker() {
 
+        targetColor = randColor();
+        $('#rand-target-color').text(targetColor.text())
+        $('#rand-target-color').css('color', targetColor.css('color'))
+
         // Shuffle color array
+        shuffle(colors);
 
 
+        let finished = false;
 
         // Push to text color array
+        for (let i = colors.length - 1; i >= 0; i--) {
+          colorsOfText.push(colors[i])
+        }
 
 
 
@@ -100,17 +124,38 @@
         // Create element to hold word
         // Output a word
         // Make word a random color
+        for (let i = 0; i < colors.length; i++) {
+          $color = $('<li>');
+          $color.text(colors[i]);
+          $color.css('color', colorsOfText[i])
+          $color.attr('colorText' ,colorsOfText[i])
+
+          $('#color-picker').append($color)
+        }
+        
 
       }
 
       // Clear the divs and arrays upon each round.
       function clear() {
+        $('#color-picker').empty();
 
       }
 
       // Function for resetting colors and setting new colors.
       function reset() {
+        clear();
+        createColorPicker();
 
+        $('li').on('click', function () {
+          if ($(this).attr('colorText') === targetColor.text()) {
+            alert('Winner winner')
+            reset();
+          } else {
+            alert('Maybe next time');
+            reset();
+          }
+        });
       }
 
       // Get id of element clicked by user
@@ -121,6 +166,11 @@
       // Run game
       reset();
     });
+
+    function shuffle(array) {
+      array.sort(() => Math.random() - 0.5);
+    }
+
 
   </script>
 </body>
