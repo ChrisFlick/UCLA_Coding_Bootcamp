@@ -77,11 +77,14 @@
 
 $(document).ready(function() {
   // Your code here...
+  let isNum = false
   let onSecond = false;
   let operator
 
     $(".number").on('click', function () {
       let $number;
+
+      isNum = true;
 
       if (!onSecond) {
         $number =  $('#first-number');
@@ -94,7 +97,7 @@ $(document).ready(function() {
     });
 
     $(".operator").on('click', function() {
-      if ($('first-number').text() != " ") {
+      if (isNum) {
         onSecond = true;
         $('#operator').text($(this).text());
         operator = $(this).attr('value')
@@ -131,11 +134,12 @@ $(document).ready(function() {
 
     $('.clear').on('click', function() {
       onSecond = false;
-      $('#first-number').empty();
+      isNum = false;
+      
+      $('first-number').empty();
       $('#second-number').empty();
       $('#operator').empty();
       $('#result').empty();
-
     });
 
   });
