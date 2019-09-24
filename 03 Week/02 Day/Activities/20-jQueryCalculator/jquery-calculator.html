@@ -76,11 +76,69 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
+  // Your code here...
+  let onSecond = false;
+  let operator
 
-// Your code here...
+    $(".number").on('click', function () {
+      let $number;
 
+      if (!onSecond) {
+        $number =  $('#first-number');
+      } else {
+        $number = $('#second-number');
+      }
+      
+      $number.text($number.text() + $(this).attr("value"))
+      
+    });
 
-});
+    $(".operator").on('click', function() {
+      if ($('first-number').text() != " ") {
+        onSecond = true;
+        $('#operator').text($(this).text());
+        operator = $(this).attr('value')
+      }
+    });
+
+    $('.equal').on('click', function() {
+      let num1 = parseInt($('#first-number').text())
+      let num2 = parseInt($('#second-number').text())
+
+      let total;
+      
+      switch(operator) {
+        case "plus":
+          total = num1 + num2;
+          break;
+        case "minus":
+          total = num1 - num2;
+          break;
+        case "times":
+          total = num1 * num2;
+          break;
+        case "power":
+          total = Math.pow(num1, num2);
+          break;
+        case 'divide':
+          total = num1 / num2;
+          break;
+      }
+
+      $('#result').text(total)
+
+    });
+
+    $('.clear').on('click', function() {
+      onSecond = false;
+      $('#first-number').empty();
+      $('#second-number').empty();
+      $('#operator').empty();
+      $('#result').empty();
+
+    });
+
+  });
 
 </script>
 
