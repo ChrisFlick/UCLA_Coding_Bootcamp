@@ -79,6 +79,7 @@ $(document).ready(function() {
   // Your code here...
   let isNum = false
   let onSecond = false;
+  let finished = false;
   let operator
 
     $(".number").on('click', function () {
@@ -92,12 +93,14 @@ $(document).ready(function() {
         $number = $('#second-number');
       }
       
-      $number.text($number.text() + $(this).attr("value"))
+      if (!finished) {
+        $number.text($number.text() + $(this).attr("value"))
+      }      
       
     });
 
     $(".operator").on('click', function() {
-      if (isNum) {
+      if (isNum && !finished) {
         onSecond = true;
         $('#operator').text($(this).text());
         operator = $(this).attr('value')
@@ -105,6 +108,8 @@ $(document).ready(function() {
     });
 
     $('.equal').on('click', function() {
+      finished = true;
+      
       let num1 = parseInt($('#first-number').text())
       let num2 = parseInt($('#second-number').text())
 
@@ -135,8 +140,9 @@ $(document).ready(function() {
     $('.clear').on('click', function() {
       onSecond = false;
       isNum = false;
+      finished = false;
       
-      $('first-number').empty();
+      $('#first-number').empty();
       $('#second-number').empty();
       $('#operator').empty();
       $('#result').empty();
