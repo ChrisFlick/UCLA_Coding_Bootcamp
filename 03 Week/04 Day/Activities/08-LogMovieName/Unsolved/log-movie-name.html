@@ -30,16 +30,25 @@
       <input id="add-movie" type="submit" value="Add a Movie, Yo!">
     </form>
 
+
+    <div id="movie-view">
+      <div id='title'></div>
+      <div id="rating"></div>
+      <div id="year"></div>
+      <div id="plot"></div>
+      <div id="poster"></div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script type="text/javascript">
       // Initial array of movies
       var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
 
       // Generic function for capturing the movie name from the data-attribute
       function alertMovieName() {
-
-        // YOUR CODE GOES HERE!!!
-
+        alert($(this).text())
+        getMovie($(this).text())
       }
 
       // Function for displaying movie data
@@ -79,6 +88,29 @@
         // Calling renderButtons which handles the processing of our movie array
         renderButtons();
       });
+
+      function getMovie(title) {
+      var queryURL = "https://www.omdbapi.com/?t=" + title + "&apikey=trilogy";
+
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        console.log(response)
+        // Create and save a reference to new empty table row
+      
+        // Create and save references to 3 td elements containing the Title, Year, and Actors from the AJAX response object
+
+
+        $('#title').text(response.Title);
+        $('#year').text(response.Year)
+        $('#rating').text(response.Rated)
+        $('#plot').text(response.Plot)
+        $('#poster').html("<img src=" + response.Poster + " alt='movie poster'>")
+        
+        
+     });
+    }
 
       // Function for displaying the movie info
       // We're adding a click event listener to all elements with the class "movie"

@@ -31,7 +31,13 @@
     </form>
 
     <!-- Movies will get dumped here -->
-    <div id="movies-view"></div>
+    <div id="movie-view">
+      <div id='title'></div>
+      <div id="rating"></div>
+      <div id="year"></div>
+      <div id="plot"></div>
+      <div id="poster"></div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -50,7 +56,11 @@
           method: "GET"
         }).then(function(response) {
 
-          // YOUR CODE GOES HERE!!!
+          $('#title').text(response.Title);
+          $('#year').text(response.Year)
+          $('#rating').text(response.Rated)
+          $('#plot').text(response.Plot)
+          $('#poster').html("<img src=" + response.Poster + " alt='movie poster'>")
 
         });
 
