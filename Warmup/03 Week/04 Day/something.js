@@ -12,7 +12,7 @@ let longest = names.reduce((longest, name) => {
 let blankout = `\r${' '.repeat(longest)}\r`;
 
 
-process.stdout.write('\033[2J\033');
+process.stdout.write('\033[2J\033[H\nWho will it be?\n');
 
 let timer = setInterval(() => {
   if (counter === stopat) {
