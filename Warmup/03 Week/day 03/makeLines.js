@@ -4,27 +4,23 @@ let paragraph = "Lorem ipsum dolor sit amet, xconsectetur adipiscing elit, sed d
 const lineLength = 20;
 
 function makeLines(paragraph) {
-    let lines = [""];
-    let numOfLines = Math.ceil(paragraph.length / lineLength);
-    let count = 0;
+    let lines = [];
+    let words = "";
 
     paragraph = paragraph.split(" ")
 
 
-    for (let i = 0; i < numOfLines; i++ ) {
-        for (let j = 0; j < lineLength; j++) {
-            let pos = count;
-            if(paragraph[count]) {
-                lines[i] += " " +   paragraph[count];
-            }
-            
+    for (let i = 0; i < paragraph.length; i++ ) {
+        if (words.length + paragraph[i].length < lineLength) {
+            words += paragraph[i] + " "
+        } else {
+            lines.push(words);
+            words = paragraph[i] + " ";
+        }
+    }
 
-            count ++;
-        }
-        if (lines[i]) {
-            console.log(lines[i])
-        }
-        
+    for(let i = 0; i < lines.length; i++) {
+        console.log(lines[i]);
     }
 }
 

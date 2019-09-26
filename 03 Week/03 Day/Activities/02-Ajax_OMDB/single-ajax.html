@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
     // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
-    var title = "space+jam";
+    var title = "dead+alive";
     var queryURL = "https://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy";
 
     $.ajax({
@@ -18,7 +18,12 @@
       method: "GET"
     }).then(function(response) {
       console.log(response);
-      console.log(response.Runtime);
+      console.log(response.Actors);
+
+      $poster = $('<img>');
+      $poster.attr('src', response.Poster)
+
+      $('body').append($poster)
     });
 // ---------------------------------------------------------
 
