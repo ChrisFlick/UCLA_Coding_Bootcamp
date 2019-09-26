@@ -21,7 +21,13 @@
     </form>
 
     <!-- We'll be dumping our JSON contents in here -->
-    <div id="movie-view"></div>
+    <div id="movie-view">
+      <div id='title'></div>
+      <div id="rating"></div>
+      <div id="year"></div>
+      <div id="plot"></div>
+      <div id="poster"></div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -45,10 +51,33 @@
 
         // =================================================================
 
-        // CODE GOES HERE
+        getMovie(movie)
 
         // =================================================================
       });
+
+      function getMovie(title) {
+      var queryURL = "https://www.omdbapi.com/?t=" + title + "&apikey=trilogy";
+
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        console.log(response)
+        // Create and save a reference to new empty table row
+      
+        // Create and save references to 3 td elements containing the Title, Year, and Actors from the AJAX response object
+
+
+        $('#title').text(response.Title);
+        $('#year').text(response.Year)
+        $('#rating').text(response.Rated)
+        $('#plot').text(response.Plot)
+        $('#poster').html("<img src=" + response.Poster + " alt='movie poster'>")
+        
+        
+     });
+    }
     </script>
   </div>
 </body>
