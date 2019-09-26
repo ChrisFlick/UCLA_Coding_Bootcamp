@@ -27,9 +27,20 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 <script>
   function searchBandsInTown(artist) {
+    let id = 'asd'
+    let queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=" + id 
     // Add code to query the bands in town api searching for the artist received as an argument to this function
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then( function(response) {
+      console.log(response)
+    })
+
     // Using jQuery, append the following to the #artist-div :
     // The artist's name
     // The artists thumbnail image
