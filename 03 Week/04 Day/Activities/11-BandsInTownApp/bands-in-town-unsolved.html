@@ -22,6 +22,7 @@
   </form>
 
   <!-- Artist Information -->
+  <br>
   <div id="artist-div"></div>
 
 </body>
@@ -38,7 +39,26 @@
       url: queryURL,
       method: "GET"
     }).then( function(response) {
-      console.log(response)
+      console.log(response);
+      
+      let $name = $('<div>');
+      let $img = $('<img>');
+      let $fans = $('<div>');
+      let $events = $('<div>');
+      let $link = $('<a>');
+      
+      $name.text(response.name);
+      $img.attr('src', response.thumb_url)
+      $fans.text('Fans: ' + response.tracker_count)
+      $events.text("Upcoming Events: " + response.upcoming_event_count)
+      $link.attr('href' , response.url)
+
+      $('#artist-div').append($name)
+      $('#artist-div').append($img)
+      $('#artist-div').append($fans)
+      $('#artist-div').append($events)
+      $('#artist-div').append($link)
+      
     })
 
     // Using jQuery, append the following to the #artist-div :
