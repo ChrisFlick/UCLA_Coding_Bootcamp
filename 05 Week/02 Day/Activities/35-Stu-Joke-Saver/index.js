@@ -11,4 +11,10 @@ axios.get("https://icanhazdadjoke.com/", config)
   .then(function(res) {
 
     console.log(res.data);
+
+    appendFileAsync('jokes.txt', `${res.data.joke}\n\n`)
+    
+    readFileAsync('jokes.txt', 'utf8').then(function(data) {
+      console.log(data)
+    })
   });
