@@ -53,7 +53,7 @@ console.log(name, alias, allegiance);
 const skills = 'The Usurper, male, Baratheon, Cersei'; 
 
 // CODE BELOW HERE
-let [alias2, gender, family, spouse] = skills.split(',')
+ [alias, gender, family, spouse] = skills.split(',')
 
 
-console.log(alias2, gender, family, spouse); // print them by variable name
+console.log(alias, gender, family, spouse); // print them by variable name
