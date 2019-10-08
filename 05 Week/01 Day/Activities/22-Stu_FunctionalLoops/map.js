@@ -4,6 +4,11 @@ const doubledArray = originalArray.map(function(data) {
   return data * 2;
 });
 
+const tripledArray = originalArray.map(data => {
+  return data * 3;
+})
+
+console.log(tripledArray)
 console.log(doubledArray);
 console.log(originalArray);
 

@@ -6,8 +6,11 @@ const evenNumbers = originalArray.filter(function(data) {
   }
 });
 
+
+
 console.log(evenNumbers);
 console.log(originalArray);
+
 
 const isPrime = num => {
   for (let i = 2; i < num; i++) {
@@ -15,6 +18,17 @@ const isPrime = num => {
   }
   return num !== 1;
 };
+
+const primeArray = originalArray.filter(data => {
+  return isPrime(data)
+})
+
+const moreThan5Array = originalArray.filter(data => {
+  return data > 5;
+})
+
+console.log(primeArray)
+console.log(moreThan5Array)
 
 // Complete the following
 
