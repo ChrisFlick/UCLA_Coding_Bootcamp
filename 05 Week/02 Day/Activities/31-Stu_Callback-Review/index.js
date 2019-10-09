@@ -1,3 +1,5 @@
+'use strict'
+
 const fs = require("fs");
 
 fs.readFile("animals.json", "utf8", function(err, data) {
@@ -23,7 +25,10 @@ fs.readFile("animals.json", "utf8", function(err, data) {
         break;
     }
   });
-  console.log(dogs)
-  console.log(cats)
+
+  let catsJSON = JSON.stringify(cats)
+  let dogsJSON = JSON.stringify(dogs)
+  console.log(catsJSON)
+  console.log(dogsJSON)
 
 });

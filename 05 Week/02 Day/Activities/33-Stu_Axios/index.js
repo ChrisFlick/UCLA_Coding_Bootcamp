@@ -10,25 +10,23 @@ inquirer
     message: "Enter your GitHub username",
     name: "username"
   })
-  .then(function({ username }) {
+  .then(function ({ username }) {
     const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
     axios
       .get(queryUrl)
       .then((res) => {
         let count = 0;
-         res.data.forEach(element => {
-           repoNames += `${element.name}\n`
-           count++;
-         });
+        res.data.forEach(element => { // Iterates over github array and collects names
+          repoNames += `${element.name}\n`
+          count++;
+        });
 
-         fs.writeFile('repos.txt', repoNames, (err) => {
-           if (err) {
-             console.log(err)
-           } else {
-             console.log(`Saved users ${count} repos`)
-           }
-         })
-
-         
+        fs.writeFile('repos.txt', repoNames, (err) => {
+          if (err) {
+            console.log(err)
+          } else {
+            console.log(`Saved users ${count} repos`)
+          }
+        })
       })
   });
