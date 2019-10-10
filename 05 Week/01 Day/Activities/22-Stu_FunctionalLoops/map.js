@@ -22,4 +22,6 @@ console.log(originalArray);
 
 // Your code here
 
+const oddOrEven = originalArray.map(num => (num % 2 === 0 ? "even" : "odd"))
+
 // Bonus: Use arrow functions as callbacks!

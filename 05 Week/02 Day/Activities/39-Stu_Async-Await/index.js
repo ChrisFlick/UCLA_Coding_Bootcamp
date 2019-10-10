@@ -48,7 +48,7 @@ async function combineAnimals() {
         console.log(animals);
       }).then(() => {
         console.log(animals)
-        writeFileAsync('animals.json', JSON.stringify(animals));
+        writeFileAsync('combined.json', JSON.stringify(animals));
       })
     })
 

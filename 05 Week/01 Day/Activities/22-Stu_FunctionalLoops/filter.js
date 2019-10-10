@@ -19,9 +19,7 @@ const isPrime = num => {
   return num !== 1;
 };
 
-const primeArray = originalArray.filter(data => {
-  return isPrime(data)
-})
+const primeArray = originalArray.filter(isPrime)
 
 const moreThan5Array = originalArray.filter(data => {
   return data > 5;

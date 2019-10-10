@@ -11,6 +11,7 @@ function waitFor(seconds, cb) {
 }
 
 const waitForAsync = util.promisify(waitFor)
+console.log(waitForAsync)
 
 
 // waitFor(2, function(err, msg) {
