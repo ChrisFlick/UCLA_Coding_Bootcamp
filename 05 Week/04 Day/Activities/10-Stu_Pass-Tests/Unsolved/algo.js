@@ -16,21 +16,13 @@ Algo.prototype.reverse = function(str) {
 };
 
 Algo.prototype.isPalindrome = function(str) {
-    let alg = new Algo();
-
-    if (alg.reverse(str) === str) {
-        return true;
-    } else {
-        return false;
-    }
+    return this.reverse(str) === str;
 };
 
 Algo.prototype.capitalize = function(str) {
-    let words = str.split(" ")
-
-    for (let i = 0; i < words.length; i++) {
-        words[0].toUppercase
-    }
+    return str.split(' ').map(word => {
+        return word.substring(0,1).toUpperCase() + word.substring(1)
+    }).join(' ')
 };
 
 module.exports = Algo;
