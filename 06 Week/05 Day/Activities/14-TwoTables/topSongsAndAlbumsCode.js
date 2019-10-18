@@ -17,10 +17,10 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
   if (err) throw err;
-  runSearch();
+  query();
 });
 
-function runSearch() {
+function query() {
   inquirer
     .prompt({
       name: "action",
@@ -62,22 +62,23 @@ function runSearch() {
 function artistSearch() {
   inquirer
     .prompt({
-      name: "artist",
-      type: "input",
-      message: "What artist would you like to search for?"
-    })
-    .then(function(answer) {
-      //
-      // TODO: select data from database and console.log (table? :))
-      //       after console.log call runSearch() to do another search
-      //
+        name: 'artist',
+        message: "Which artist would you like to search for?",
+        type: "input",
+    }).then(function (res) {
+        connection.query(`SELECT * FROM top5000 WHERE artist IN ('${res.artist}')`,
+            function (err, res) {
+                if (err) throw err;
+                console.log(res);
+                query();
+            });
     });
 }
 
 function multiSearch() {
   //
   // TODO: select data from database and console.log (table? :))
-  //       after console.log call runSearch() to do another search
+  //       after console.log call query() to do another search
   //
 }
 
@@ -110,7 +111,7 @@ function rangeSearch() {
     .then(function(answer) {
       //
       // TODO: select data from database and console.log (table? :))
-      //       after console.log call runSearch() to do another search
+      //       after console.log call query() to do another search
       //
     });
 }
@@ -122,11 +123,13 @@ function songSearch() {
       type: "input",
       message: "What song would you like to look for?"
     })
-    .then(function(answer) {
-      //
-      // TODO: select data from database and console.log (table? :))
-      //       after console.log call runSearch() to do another search
-      //
+    .then(function(res) {
+      connection.query(`SELECT * FROM top5000 WHERE title IN ('${res.song}')`,
+          function (err, res) {
+              if (err) throw err;
+              console.log(res);
+              query();
+          });
     });
 }
 
@@ -137,10 +140,16 @@ function songAndAlbumSearch() {
       type: "input",
       message: "What artist would you like to search for?"
     })
-    .then(function(answer) {
-      //
-      // TODO: select data from database and console.log (table? :))
-      //       after console.log call runSearch() to do another search
-      //
+    .then(function(res) {
+        connection.query(`
+        SELECT top5000.year, top5000.artist, top5000.song, topalbums.title
+        FROM topAlbums 
+        INNER JOIN top5000 ON top5000.artist = topAlbums.artist AND top5000.year = topalbums.year
+        WHERE top5000.artist IN ('${res.artist}')`,
+          function (err, res) {
+            if (err) throw err;
+            console.log(res)
+            query()
+          })
     });
 }
