@@ -10,7 +10,7 @@ const con = mysql.createConnection({
     database: "seinfeld_db",
     PORT: 3306,
     user: "root",
-    password: "9u4ke2Quake"
+    password: ""
   });
 
  
@@ -39,12 +39,30 @@ app.get('/cast', function(req, res) {
     
 })
 
-app.get('/coolnesss-chart', function(req, res) {
-//     SELECT *
-// FROM actors 
-// WHERE attitude IN ('witty')
+app.get('/coolness-chart', function(req, res) {
 
 
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log('connected!')
+
+        con.query(`
+            SELECT *
+            FROM actors
+            ORDER BY coolness DESC
+        `,function (err, result) {
+            if (err) throw err;
+
+            let html = '<h1>Results by Coolness:</h1>'
+
+            html += display(result)
+            
+
+            res.send(html)
+
+
+        })
+    }) 
     
 
 })
