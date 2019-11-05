@@ -91,6 +91,10 @@ app.delete("/delete/:id", (req, res) => {
 // 6. Clear the entire note collection
 // DELETE: /clearall
 // ===================================
+app.delete("/clearall", (req, res) => {
+  db.notes.drop()
+  res.end();
+})
 
 // Listen on port 3000
 app.listen(3000, () => {
