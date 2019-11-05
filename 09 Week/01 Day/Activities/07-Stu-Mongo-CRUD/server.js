@@ -72,10 +72,8 @@ app.put("/update/:id", (req, res) => {
       "_id": mongojs.ObjectId(req.params.id) 
     },
     { 
-      $set: {} 
-    }, (err, data) => {
-    if(err) throw err;
-  })
+      $set: {note: req.body.note} 
+    })
   res.end()
 })
 
