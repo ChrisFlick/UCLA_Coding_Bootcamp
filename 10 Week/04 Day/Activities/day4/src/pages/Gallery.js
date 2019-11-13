@@ -3,11 +3,13 @@ import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import Row from "../components/Row";
 
+let userIndex = 0;
+
 function Gallery() {
 
   const [user, setUser] = useState({});
   const [users, setUsers] = useState([]);
-  const [userIndex, setUserIndex] = useState(0);
+  
 
   // When the component mounts, a call will be made to get random users.
   useEffect(() => {
@@ -21,14 +23,18 @@ function Gallery() {
 
   // Ensure that the user index stays within our range of users
   function nextUser() {
-    setUserIndex(userIndex + 1)
-    setUser(users[userIndex])
+    if (userIndex < users.length - 1) {
+      userIndex++
+      setUser(users[userIndex])
+    }
+    
   }
 
   // Ensure that the user index stays within our range of users
   function previousUser() {
     if (userIndex > 0) {
-      setUserIndex(userIndex - 1)
+
+      userIndex--;
       setUser(users[userIndex])
     }
 
@@ -39,7 +45,7 @@ function Gallery() {
     const btnName = event.target.getAttribute("data-value");
     if (btnName === "next") {
       nextUser();
-    } else {
+    } else if (btnName === "back") {
       previousUser();
     }
   }

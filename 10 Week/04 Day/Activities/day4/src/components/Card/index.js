@@ -19,12 +19,12 @@ function Card({ user, onClick }) {
       />
       <CardBtn
         style={{ opacity: user.image ? 1 : 0 }}
-        data-value="next"
+        data-value="back"
         onClick={onClick}
       />
       <CardBtn
         style={{ opacity: user.image ? 1 : 0 }}
-        data-value="back"
+        data-value="next"
         onClick={onClick} 
       />
     </div>
