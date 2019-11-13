@@ -107,7 +107,14 @@ module.exports = function (app) {
 
   // Add sequelize code to delete a book
   app.delete("/api/book/:id", function (req, res) {
-
+    Book.destroy({
+      where: {
+        id : req.params.id,
+      }
+    }).then( () => {
+      res.end();
+     
+     } );
   });
 
 };
