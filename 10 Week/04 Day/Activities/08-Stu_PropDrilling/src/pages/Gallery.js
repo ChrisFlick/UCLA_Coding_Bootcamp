@@ -1,51 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import CardContainer from "../components/CardContainer";
 import Row from "../components/Row";
-import Context from "../utils/Context"
+
+let userIndex = 0;
 
 function Gallery() {
 
   const [user, setUser] = useState({});
   const [users, setUsers] = useState([]);
-  const [userIndex, setUserIndex] = useState(0);
+  
 
   // When the component mounts, a call will be made to get random users.
   useEffect(() => {
     loadUsers();
   }, []);
-    
+
+  // Capitalize the first letter of a given string
   function capitalizeFirstLetter(string = "") {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  function nextUser(userIndex) {
-    // Ensure that the user index stays within our range of users
-    if (userIndex >= users.length) {
-      userIndex = 0;
+  // Ensure that the user index stays within our range of users
+  function nextUser() {
+    if (userIndex < users.length - 1) {
+      userIndex++
+      setUser(users[userIndex])
     }
-    setUser(users[userIndex]);
-    setUserIndex(userIndex);
+    
   }
 
-  function previousUser(userIndex) {
-    // Ensure that the user index stays within our range of users
-    if (userIndex < 0) {
-      userIndex = users.length - 1;
+  // Ensure that the user index stays within our range of users
+  function previousUser() {
+    if (userIndex > 0) {
+
+      userIndex--;
+      setUser(users[userIndex])
     }
-    setUser(users[userIndex]);
-    setUserIndex(userIndex);
+
   }
 
   function handleBtnClick(event) {
     // Get the title of the clicked button
     const btnName = event.target.getAttribute("data-value");
     if (btnName === "next") {
-      const newUserIndex = userIndex + 1;
-      nextUser(newUserIndex);
-    } else {
-      const newUserIndex = userIndex - 1;
-      previousUser(newUserIndex);
+      nextUser();
+    } else if (btnName === "back") {
+      previousUser();
     }
   }
 
@@ -62,19 +63,16 @@ function Gallery() {
 
   return (
     <div>
-      <Context.Provider value={user}>
       <h1 className="text-center">Welcome to LinkedUp</h1>
       <h3 className="text-center">Click on the arrows to browse users</h3>
       <Row>
         <CardContainer
-          handleBtnClick={handleBtnClick}
+          user={user}
+          onClick = {handleBtnClick}
         />
       </Row>
-      </Context.Provider>
     </div>
   );
 }
 
-
 export default Gallery;
- 

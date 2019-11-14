@@ -1,31 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import CardBody from "../CardBody";
 import CardBtn from "../CardBtn";
 import CardImg from "../CardImage";
 import CardHeading from "../CardHeading";
 import "./style.css";
+import Context from "../../utils/Context"
 
-function Card({ user, onClick }) {
+function Card({ handleBtnClick }) {
+  const { image } = useContext(Context)
   return (
     <div>
-      <CardHeading
-        user={user}
-      />
-      <CardImg
-        user={user}
-      />
-      <CardBody
-        user={user}
-      />
+      <CardHeading />
+      <CardImg />
+      <CardBody />
+      {!image && <i className="fa fa-spinner fa-spin" aria-hidden="true" />}
       <CardBtn
-        style={{ opacity: user.image ? 1 : 0 }}
+        style={{ opacity: image ? 1 : 0 }}
+        onClick={handleBtnClick}
         data-value="back"
-        onClick={onClick}
       />
       <CardBtn
-        style={{ opacity: user.image ? 1 : 0 }}
+        style={{ opacity: image ? 1 : 0 }}
+        onClick={handleBtnClick}
         data-value="next"
-        onClick={onClick} 
       />
     </div>
   );

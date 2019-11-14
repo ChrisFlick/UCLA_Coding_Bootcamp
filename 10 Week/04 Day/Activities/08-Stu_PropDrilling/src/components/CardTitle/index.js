@@ -1,11 +1,14 @@
 import React from "react";
-import "./style.css";
 import CardTitleText from "../CardTitleText";
+import "./style.css";
 
-function CardTitle() {
+
+function CardTitle({user}) {
   return (
     <div className="blue text-center">
-      <CardTitleText/>
+      <CardTitleText
+        user={user}
+      />
     </div>
   );
 }
