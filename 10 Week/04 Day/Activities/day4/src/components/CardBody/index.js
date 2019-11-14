@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
-import Context from "../../utils/Context"
+import UserContext from "../../utils/userContext";
+import LanguageContext from "../../utils/languageContext";
 
 function CardBody() {
-  const {language, email} = useContext(Context)
+  const { user } = useContext(UserContext);
+  const { language } = useContext(LanguageContext);
   return (
     <div>
       <h4>
-      Favorite language: {language}
+        Favorite language: {language}
       </h4>
       <h4>
-      Email: {email}
+          Email: {user.email}
       </h4>
     </div>
   );

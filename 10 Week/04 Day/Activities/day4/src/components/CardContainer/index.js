@@ -1,14 +1,11 @@
-import React, {useContext} from "react";
+import React from "react";
 import Card from "../Card";
 import "./style.css";
-import Context from "../../utils/Context"
 
-function CardContainer({ handleBtnClick }) {
-  const {firstName, lastName, image, language, email} = useContext(Context)
-
+function CardContainer() {
   return (
     <div className="jumbotron card-container">
-      <Card  handleBtnClick={handleBtnClick} />
+      <Card />
     </div>
   );
 }

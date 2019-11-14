@@ -1,30 +1,19 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
-import UserContext from "../utils/userContext";
 import CardContainer from "../components/CardContainer";
 import Row from "../components/Row";
+import Context from "../utils/Context"
 
 function Gallery() {
 
-  const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
+  const [users, setUsers] = useState([]);
   const [userIndex, setUserIndex] = useState(0);
 
   // When the component mounts, a call will be made to get random users.
   useEffect(() => {
     loadUsers();
   }, []);
-
-  function loadUsers() {
-    API.getLanguagesList()
-      .then(languages => {
-        API.getUsersByLanguage(languages[0]).then((users) => {
-          setUsers(users);
-          setUser(users[0]);
-        });
-      })
-      .catch(err => console.log(err));
-  }
     
   function capitalizeFirstLetter(string = "") {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -35,8 +24,8 @@ function Gallery() {
     if (userIndex >= users.length) {
       userIndex = 0;
     }
-    setUserIndex(userIndex);
     setUser(users[userIndex]);
+    setUserIndex(userIndex);
   }
 
   function previousUser(userIndex) {
@@ -44,8 +33,8 @@ function Gallery() {
     if (userIndex < 0) {
       userIndex = users.length - 1;
     }
-    setUserIndex(userIndex);
     setUser(users[userIndex]);
+    setUserIndex(userIndex);
   }
 
   function handleBtnClick(event) {
@@ -60,18 +49,32 @@ function Gallery() {
     }
   }
 
+  function loadUsers() {
+    API.getLanguagesList()
+      .then(languages => {
+        API.getUsersByLanguage(languages[0]).then((users) => {
+          setUsers(users);
+          setUser(users[0]);
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
   return (
-    <UserContext.Provider value={{ user, users, userIndex, capitalizeFirstLetter, handleBtnClick }}>
-      <div>
-        <h1 className="text-center">Welcome to LinkedUp</h1>
-        <h3 className="text-center">Click on the arrows to browse users</h3>
-        <Row>
-          <CardContainer />
-        </Row>
-      </div>
-    </UserContext.Provider>
+    <div>
+      <Context.Provider value={user}>
+      <h1 className="text-center">Welcome to LinkedUp</h1>
+      <h3 className="text-center">Click on the arrows to browse users</h3>
+      <Row>
+        <CardContainer
+          handleBtnClick={handleBtnClick}
+        />
+      </Row>
+      </Context.Provider>
+    </div>
   );
 }
 
 
 export default Gallery;
+ 

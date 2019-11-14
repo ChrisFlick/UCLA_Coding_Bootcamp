@@ -4,7 +4,6 @@ const UserContext = React.createContext({
   firstname: "",
   lastname: "",
   email: "",
-  language: "",
   image: "",
   capitalizeFirstLetter: () => {},
   handleBtnClick: () => {}

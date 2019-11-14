@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
-import Context from "../../utils/Context"
+import UserContext from "../../utils/userContext";
 
 function CardTitleText() {
-  const {firstname, lastname } = useContext(Context)
-  return <h2>{firstname} {lastname}</h2>;
+  console.log(useContext(UserContext))
+  const { user, capitalizeFirstLetter } = useContext(UserContext);
+  return (
+    <h2>{capitalizeFirstLetter(user.firstname) +
+      " " + capitalizeFirstLetter(user.lastname)}</h2>
+  );
 }
 
 export default CardTitleText;

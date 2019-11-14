@@ -5,7 +5,7 @@ import "./style.css";
 function CardHeading() {
   return ( 
     <div>
-      <CardTitle />
+      <CardTitle/>
     </div> 
   );
 }

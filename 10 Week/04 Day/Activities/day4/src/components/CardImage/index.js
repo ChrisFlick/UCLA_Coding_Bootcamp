@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import Context from "../../utils/Context"
+import UserContext from "../../utils/userContext";
 
 function CardImg() {
-  const { image } = useContext(Context)
+  const { user } = useContext(UserContext);
   return (
     <div>
-      <img className="card-img" src={image} alt="user thumbnail" />
-      {!image && <i className="fa fa-spinner fa-spin" aria-hidden="true" />}
+      <img className="card-img" src={user.image} alt="user thumbnail" />
+      {!user.image && <i className="fa fa-spinner fa-spin" aria-hidden="true" />}
     </div>
   );
 }
